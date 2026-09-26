@@ -41,10 +41,18 @@ void updateAppTheme(String languageCode) {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  try {
+    await Firebase.initializeApp();
+  } catch (e) {
+    debugPrint('Firebase init: $e');
+  }
 
   // Initialize Notification Service with high importance channel & alarm sound
-  await NotificationService.instance.init();
+  try {
+    await NotificationService.instance.init();
+  } catch (e) {
+    debugPrint('Notification init: $e');
+  }
 
   runApp(const MyApp());
 }
