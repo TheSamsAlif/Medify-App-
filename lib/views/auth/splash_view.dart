@@ -44,12 +44,26 @@ class _SplashViewState extends State<SplashView> with SingleTickerProviderStateM
     _animationController.forward();
 
     // Navigate quickly if launched from alarm (150ms), otherwise after 2.2 seconds for splash branding
-    final isAlarmLaunch = NotificationService.instance.pendingLaunchPayload != null;
+    bool isAlarmLaunch = false;
+    try {
+      isAlarmLaunch = NotificationService.instance.pendingLaunchPayload != null;
+    } catch (_) {}
     final delay = isAlarmLaunch ? const Duration(milliseconds: 150) : const Duration(milliseconds: 2200);
 
     Timer(delay, () async {
       if (!mounted) return;
-      await Get.find<AuthController>().checkAuthAndNavigate();
+      try {
+        await Get.find<AuthController>().checkAuthAndNavigate().timeout(
+          const Duration(seconds: 4),
+          onTimeout: () {
+            debugPrint('checkAuthAndNavigate timed out, navigating to onboarding');
+            if (mounted) Get.offNamed('/onboarding');
+          },
+        );
+      } catch (e) {
+        debugPrint('Splash navigation error: $e');
+        if (mounted) Get.offNamed('/onboarding');
+      }
     });
   }
 

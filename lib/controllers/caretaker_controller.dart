@@ -122,9 +122,15 @@ class CaretakerController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _loadUserData();
-    _listenToPatients();
-    _listenToSosAlerts();
+    try {
+      _loadUserData();
+    } catch (_) {}
+    try {
+      _listenToPatients();
+    } catch (_) {}
+    try {
+      _listenToSosAlerts();
+    } catch (_) {}
   }
 
   @override

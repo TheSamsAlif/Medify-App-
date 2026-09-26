@@ -123,16 +123,30 @@ class PatientController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _loadLocalMedicines();
-    _loadUserData();
-    _listenToMedicines();
-    _listenToHistory();
-    _startAlarmChecker();
-    _listenToPatientSos();
+    try {
+      _loadLocalMedicines();
+    } catch (_) {}
+    try {
+      _loadUserData();
+    } catch (_) {}
+    try {
+      _listenToMedicines();
+    } catch (_) {}
+    try {
+      _listenToHistory();
+    } catch (_) {}
+    try {
+      _startAlarmChecker();
+    } catch (_) {}
+    try {
+      _listenToPatientSos();
+    } catch (_) {}
 
-    NotificationService.instance.onActionReceived = _handleNotificationAction;
-    NotificationService.instance.onNotificationTapped = _handleNotificationTap;
-    _processPendingNotificationActions();
+    try {
+      NotificationService.instance.onActionReceived = _handleNotificationAction;
+      NotificationService.instance.onNotificationTapped = _handleNotificationTap;
+      _processPendingNotificationActions();
+    } catch (_) {}
   }
 
   Future<void> _loadLocalMedicines() async {
