@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "293962728102",
+    "project_id": "mediapp-799ac",
+    "storage_bucket": "mediapp-799ac.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293962728102:android:ff0a724b20278235f5aa67",
+        "android_client_info": {
+          "package_name": "com.medify.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293962728102-ou7bd85g7tdafiq0otkr2hcjk3a01uqs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.medify.app",
+            "certificate_hash": "8edbac03e3b9831badc6b5f17739631e180fc320"
+          }
+        },
+        {
+          "client_id": "293962728102-r4msmbhld1n2rkl4tspfejms7r4cu3qd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD32BNZXCaXMgKCCoYAsY5PYr_i3X_e28Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293962728102-r4msmbhld1n2rkl4tspfejms7r4cu3qd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
